@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			xmlns:tns="http://nl.hu.iac/temperatuurservice/fault" 
+			elementFormDefault="qualified" 
+			targetNamespace="http://schemas.hu.fnt.nl/berichten/fault">
+	
+	<xs:annotation>
+			<xs:documentation>
+				message is niet voor de gebruiker, kan ook null zijn
+			</xs:documentation>
+	</xs:annotation>	
+	
+	<xs:element name="Fault" />
+		<xs:complexType name="Fault">
+
+			<xs:sequence>
+				<xs:element name="errorCode" nillable="false" type="xs:short"/>
+
+				<xs:element maxOccurs="1" minOccurs="0" name="message" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+</xs:schema>

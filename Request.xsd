@@ -7,7 +7,7 @@
         <xs:documentation xml:lang="nl">
             Locatie is een String waar een dat een stad moet zijn. De enige steden die in de TemperatuurServiceImpl worden geaccepteerd zijn: Utrecht, Barcelona en New York.
 			Tijd is een dateTime die aangeeft welke datum het is en hoe laat het is. Bij het testen, gebruik dan waarden volgens het volgende mask: CCYYMMDDThhmmss
-			Dit wordt gebruikt als volgt: 2001-10-26T21:32:52
+			Dit wordt gebruikt als volgt: 2001-10-26T21:32:52 of 2001-04-06T21:32:52
 			Met een dateTime kan ik achterhalen wat het seizoen is en hoe laat het is. Hiermee kan ik makkelijker berekenen wat de temperatuur is bij een bepaalde locatie.
         </xs:documentation>
     </xs:annotation>
