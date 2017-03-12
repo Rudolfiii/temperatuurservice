@@ -12,6 +12,11 @@ public class TemperatuurServiceImpl implements WSInterface {
         Response response = factory.createResponse();
 
 
+
+        //
+        // De volgende reeks van "if-statements" "berekend" de temperatuur  van de meegegeven tijd en locatie.
+        // De enige locaties die deze code ondersteunen zijn Utrecht, Barcelona en New York
+        //
         double locationMultiplier;
         double timeMultiplier;
 
@@ -206,6 +211,9 @@ public class TemperatuurServiceImpl implements WSInterface {
                 }
             }
 
+            //
+            // Hier wordt het antwoord afgerond op twee decimalen.
+            //
             DecimalFormat df = new DecimalFormat("#.##");
 
             double result = locationMultiplier * timeMultiplier;
@@ -213,7 +221,11 @@ public class TemperatuurServiceImpl implements WSInterface {
             response.setResult("Het is " + df.format(result) + "°C in "+ request.getLocatie());
         }
         else {
-            response.setResult("De meegegeven locatie wordt niet ondersteund");
+            //
+            // Mocht er een onbekende locatie worden ingevult, dan wordt er een foutmelding gegeven met: " De meegegeven locatie wordt niet ondersteund.".
+            //
+
+            response.setResult("De meegegeven locatie wordt niet ondersteund.");
         }
         return response;
     }
