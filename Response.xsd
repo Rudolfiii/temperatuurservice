@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.hu.fnt.nl/berichten/response"
+           targetNamespace="http://schemas.hu.fnt.nl/berichten/response">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="nl">
+            Het result is een String van de temperatuur die berekend is met °c erachter en in een mooie zin.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:element name="Response" type="tns:Response" />
+    <xs:complexType name="Response">
+        <xs:all minOccurs="1">
+            <xs:element name="result" type="xs:string" />
+        </xs:all>
+    </xs:complexType>
+</xs:schema>
