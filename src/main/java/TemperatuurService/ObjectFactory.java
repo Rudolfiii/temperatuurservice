@@ -26,6 +26,7 @@ public class ObjectFactory {
 
     private final static QName _Request_QNAME = new QName("http://schemas.hu.fnt.nl/berichten/request", "Request");
     private final static QName _Response_QNAME = new QName("http://schemas.hu.fnt.nl/berichten/response", "Response");
+    private final static QName _Fault_QNAME = new QName("http://schemas.hu.fnt.nl/berichten/fault", "Fault");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: TemperatuurService
@@ -51,6 +52,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Fault }
+     * 
+     */
+    public Fault createFault() {
+        return new Fault();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Request }{@code >}}
      * 
      */
@@ -66,6 +75,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://schemas.hu.fnt.nl/berichten/response", name = "Response")
     public JAXBElement<Response> createResponse(Response value) {
         return new JAXBElement<Response>(_Response_QNAME, Response.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://schemas.hu.fnt.nl/berichten/fault", name = "Fault")
+    public JAXBElement<Object> createFault(Object value) {
+        return new JAXBElement<Object>(_Fault_QNAME, Object.class, null, value);
     }
 
 }

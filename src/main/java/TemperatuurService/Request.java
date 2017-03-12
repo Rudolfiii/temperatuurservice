@@ -30,7 +30,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Request", propOrder = {
+@XmlType(name = "Request", namespace = "http://schemas.hu.fnt.nl/berichten/request", propOrder = {
 
 })
 public class Request {

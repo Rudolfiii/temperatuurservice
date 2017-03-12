@@ -6,6 +6,7 @@
         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:req="http://schemas.hu.fnt.nl/berichten/request"
         xmlns:rsp="http://schemas.hu.fnt.nl/berichten/response"
+		xmlns:flt="http://schemas.hu.fnt.nl/berichten/fault"
         xmlns:tns="http://schemas.hu.fnt.nl/berichten/message"
         targetNamespace="http://schemas.hu.fnt.nl/berichten/message">
 
@@ -13,6 +14,7 @@
         <xsd:schema>
             <xsd:import namespace="http://schemas.hu.fnt.nl/berichten/request" schemaLocation="Request.xsd" />
             <xsd:import namespace="http://schemas.hu.fnt.nl/berichten/response" schemaLocation="Response.xsd" />
+			<xsd:import namespace="http://schemas.hu.fnt.nl/berichten/fault" schemaLocation="Fault.xsd" />
         </xsd:schema>
     </wsdl:types>
 
@@ -23,11 +25,16 @@
     <wsdl:message name="Response">
         <wsdl:part name="Response" element="rsp:Response" />
     </wsdl:message>
+	
+	<wsdl:message name="Fault">
+        <wsdl:part name="Fault" element="flt:Fault" />
+    </wsdl:message>
 
     <wsdl:portType name="WS-Interface">
         <wsdl:operation name="berekenTemperatuur">
             <wsdl:input message="tns:Request" />
             <wsdl:output message="tns:Response" />
+			<wsdl:fault name = "fault" message="tns:Fault" />
         </wsdl:operation>
     </wsdl:portType>
 
@@ -41,6 +48,9 @@
             <wsdl:output>
                 <soap:body use="literal" />
             </wsdl:output>
+			<wsdl:fault name="fault">
+				<soap:fault name="fault" use="literal"/>
+			</wsdl:fault>
         </wsdl:operation>
     </wsdl:binding>
 
